@@ -378,7 +378,7 @@ def lotto():
 					#jonka jälkeen vertaa niitä käyttäjän numeroihin lippu kerrallaan.
 					#Voittojen tarkistusta varten hyödynnetään aliohjelmia lottoMultiplier
 					#ja checkresults. Lopuksi ohjelma kertoo käyttäjälle onko voittanut tai
-					#ei ja voiton määrä, sekä osumat omissa lottolipuissa. Vanhat liput poistetaan
+					#ei ja voiton määrän. Vanhat liput näytetään ja sitten poistetaan
 					#ja peli pääättyy.
 					if len(userRows) >= 1:
 						try:
