@@ -12,17 +12,17 @@ def lotto():
 		print("\nOnce the player has entered the upcoming lottery, the lottery will be held and buying new tickets will not be possible untill it's over.")
 		print("\nAfter the lottery, player will or will not be rewarded with the amount of prizemoney depending on how many numbers he got right and all pre-existing tickets will be deleted.")
 		print("\nPrize-chart:\n")
-		print("""			Numbers correct				Plusnumber correct
-			1		| - 			| 5 euros
-			2		| - 			| 5 euros
-			3		| - 			| 5 euros 
-			3+extra 	| 2 euros		| 10 euros
-			4		| 10 euros		| 50 euros
-			5		| 50 euros		| 250 euros
-			6		| 2000 euros    	| 10000 euros
-			6+extra 	| 550 000 euros 	| -
-			7		| 1000000 euros		| -
-			""")
+		print("""Numbers correct			Plusnumber correct
+1		| - 			| 5 euros
+2		| - 			| 5 euros
+3		| - 			| 5 euros 
+3+extra 	| 2 euros		| 10 euros
+4		| 10 euros		| 50 euros
+5		| 50 euros		| 250 euros
+6		| 2000 euros    	| 10000 euros
+6+extra 	| 550 000 euros 	| -
+7		| 1000000 euros		| -
+		""")
 	#Funktio palauttaa ekstranumeron käyttäjälle satunnaisena tai syöttämällä.
 	#0Parametri tarkistaa ettei numeroa löydy entuudestaan lottoriviltä.
 	def extraNumber(ticket):
@@ -378,7 +378,7 @@ def lotto():
 					#jonka jälkeen vertaa niitä käyttäjän numeroihin lippu kerrallaan.
 					#Voittojen tarkistusta varten hyödynnetään aliohjelmia lottoMultiplier
 					#ja checkresults. Lopuksi ohjelma kertoo käyttäjälle onko voittanut tai
-					#ei ja voiton määrän. Vanhat liput näytetään ja sitten poistetaan
+					#ei ja voiton määrä, sekä osumat omissa lottolipuissa. Vanhat liput poistetaan
 					#ja peli pääättyy.
 					if len(userRows) >= 1:
 						try:
@@ -427,7 +427,7 @@ def lotto():
 											winnings2 += 5
 										else:
 											if len(extrahits[i]) > 0 and len(hits[i]) == 3 or len(extrahits[i]) > 0 and len(hits[i]) == 6:
-												winnings = lottoMultiplier(len(hits[i]+0.5))
+												winnings = lottoMultiplier((len(hits[i])+0.5))
 												balance += winnings * 5
 												winnings2 += winnings * 5
 											elif len(hits[i]) <= 6:
@@ -496,13 +496,10 @@ def lotto():
 								print("\nYou got",len(hits[0]),"hits!!!\nYou won",winnings2,"euros!!!! Congratulations!! Youre a millionaire!!")
 								del userRows[:]
 								del extras[:]
-								print(('\n...You hear a dreadful whisper in the air: '))
+								del plusNum[:]
+								print(('\n...You hear a dreadful whisper in the air:'))
 								time.sleep(2.0)
-								print('"Your soul...."')
-								time.sleep(2.0)
-								print('"belongs...."')
-								time.sleep(2.0)
-								print('"to me..."')
+								print('"...Your soul belong to me now...."')
 								time.sleep(2.0)
 								input("\n(Press any key to continue)")
 
